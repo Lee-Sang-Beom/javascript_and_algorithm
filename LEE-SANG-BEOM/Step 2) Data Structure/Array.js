@@ -16,6 +16,9 @@ console.log(arr_1); // [ 1, 2, 3, 4, 5, 6 ]
 arr_1.splice(3,0,128); // O(n)
 console.log(arr_1); // [ 1, 2, 3, 128, 4, 5, 6 ]
 
+arr_1.splice(4,0,129,130); // O(n)
+console.log(arr_1); // [1, 2, 3, 128, 129, 130, 4, 5, 6]
+
 // 3번째 인자로 아무 요소도 넣지 않으면, 제거만 함
 arr_1.splice(3,1); // O(n)
-console.log(arr_1); // [ 1, 2, 3, 4, 5, 6 ]
+console.log(arr_1);// [1, 2, 3, 129, 130, 4, 5, 6]
