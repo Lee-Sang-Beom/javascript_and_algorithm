@@ -18,7 +18,6 @@ function solution(s){
         if (stack && s[i] === ")") {
             stack.pop();
         } else {
-
             // i번째 stack요소가 비었거나, stack요소가 있고 "("를 만났을 때 push한다.
             // 이후 i에 대해 ")"를 만나면 하나씩 사용한다는 의미로 pop한다.
             stack.push(s[i]);
