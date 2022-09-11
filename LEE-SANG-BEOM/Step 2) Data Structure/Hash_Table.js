@@ -56,6 +56,9 @@
     // value 집합 불러오기
     console.log(table.values()); // [Map Iterator] { 100, 'hello' }
 
+    // key 값인 key2를 가지고 있는지 확인
+    console.log(table.has('key2')); // true
+
     // 초기화
     table.clear();
     console.log(table.values()); // [Map Iterator] {  }
