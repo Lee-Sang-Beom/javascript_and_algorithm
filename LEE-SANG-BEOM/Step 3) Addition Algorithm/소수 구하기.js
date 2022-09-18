@@ -47,7 +47,7 @@
         ]
         */
           
-        // 0~num(ex:10)을 모두포함하는 총 num+1개 배열
+        // 0~num(ex:10)을 모두포함하는 총 num+1개 배열 : 11의 소수를 구한다고하면, 11 자체도 소수이기 때문에 분별이 필요
         const prime = [false, false, ...Array(num-1).fill(true)];
         console.log(prime)
         
