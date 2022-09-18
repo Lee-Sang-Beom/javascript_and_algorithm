@@ -47,7 +47,9 @@
         ]
         */
           
+        // 0~num(ex:10)을 모두포함하는 총 num+1개 배열
         const prime = [false, false, ...Array(num-1).fill(true)];
+        console.log(prime)
         
         for (let i = 2; i*i <= num; i++){
             if (prime[i] === true){
