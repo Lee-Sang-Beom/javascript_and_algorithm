@@ -26,7 +26,6 @@ function permutation(arr, n){
         result.push(...combine);
         
     })
-    console.log(result);
     return result;
 }
 
