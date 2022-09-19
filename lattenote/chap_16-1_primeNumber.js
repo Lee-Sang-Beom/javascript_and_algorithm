@@ -55,7 +55,7 @@ function get_primes(num) {
   }
 
   // 소수 출력
-  for (let k = 0; k < num; k += 1) {
+  for (let k = 0; k <= num; k += 1) {
     if (prime[k]) {
       result.push(k);
     }
@@ -64,5 +64,5 @@ function get_primes(num) {
   return result;
 }
 
-console.log(get_primes(8)); // [ 2, 3, 5, 7 ]
-
+console.log(get_primes(5)); // [ 2, 3, 5]
+console.log(get_primes(11)); // [ 2, 3, 5, 7, 11 ]
