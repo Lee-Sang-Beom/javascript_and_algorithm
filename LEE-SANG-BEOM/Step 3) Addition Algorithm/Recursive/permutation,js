@@ -1,0 +1,33 @@
+// permutatation(순열) : 서로 다른 n개에서 r개를 뽑아 나열하는 경우의 수
+
+function permutation(arr, n){
+    // 1개만 뽑는다면, 그대로 순열 반환
+    // 탈출 조건으로도 사용
+    if (n===1) {
+        return arr.map((v) => [v])
+    }
+
+    let result = [];
+
+    arr.forEach((currentValue, idx, arr)=>{
+        // currentValue : 배열 내 현재 값.
+        // index : 배열 내 현재 값의 인덱스.
+        // array : 현재 배열
+
+        // 현재 index를 제외한 요소 추출
+        // index번째는 선택된 요소
+        const rest = arr.filter((_,index) => {
+            return index !== idx
+        });
+
+        // 선택된 요소를 제외하고 재귀호출
+        const perms = permutation(rest, n-1);
+        const combine = perms.map((v)=> [currentValue, ...v]);
+        result.push(...combine);
+        
+    })
+    console.log(result);
+    return result;
+}
+
+console.log(permutation([1,2,3], 3));
