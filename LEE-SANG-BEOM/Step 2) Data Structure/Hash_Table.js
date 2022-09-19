@@ -67,6 +67,7 @@
 
 // set으로 해시테이블처럼 사용하기
 // set은 키와 값이 동일하게 저장되는 방벙을 채택하고 있음
+// 키가 없는 값을 저장한다는 점에서 배열(array)과 유사
 // 집합 연산이라 볼 수 있음. 중복된 내용을 전부 제외함
 {
     const table = new Set();
@@ -74,6 +75,7 @@
     // add 메소드 사용 시 키 생성 (아래의 경우, values도 동일하게 들어감)
     table.add('key');
     table.add('key2');
+    console.log(table);
 
     // has : 포함여부
     console.log(table.has('key')); // true
