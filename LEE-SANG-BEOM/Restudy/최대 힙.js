@@ -52,7 +52,6 @@ class MaxHeap{
                 this.swap(currentIndex, leftIndex); // 왼쪽이 더 크니까, 왼쪽을 올리고, currentIndex가 내려갊
                 currentIndex = leftIndex;
             }
-
             leftIndex = currentIndex*2;
             rightIndex = currentIndex*2+1;
             

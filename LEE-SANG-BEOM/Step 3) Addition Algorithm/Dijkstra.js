@@ -51,5 +51,7 @@
         //     }
 }
 
-const graph = Array.from(new Array(5),(v,k) => []);
-console.log(graph);
+let N = 4
+let village = Array.from(Array(N + 1), () => Array(N + 1).fill([Infinity, false]));
+village[0][2][1] = 1
+console.log(village[0]);

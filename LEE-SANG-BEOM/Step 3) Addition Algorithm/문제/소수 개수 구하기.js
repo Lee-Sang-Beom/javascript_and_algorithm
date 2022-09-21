@@ -1,26 +1,31 @@
-function isPrime(num){
-    const prime = [false, false, ...new Array(num-1).fill(true)];
-    let count = 0;
-    
-    for (let i = 2; i*i <= num; i++){
-        if(prime[i]){
-            for (let j = i*2; j <= num; j += i){
-                prime[j] = false;
-            }
-        }
+function isPrime(num) {
+  // 0, 1은 소수가 아님.
+  const prime = [false, false, ...new Array(num - 1).fill(true)];
+  let count = 0;
+  const result = [];
+
+  for (let i = 2; i * i <= num; i++) {
+    for (let j = i * 2; j <= num; j += i) {
+      if (prime[j]) {
+        prime[j] = false;
+      }
     }
+  }
 
-    for (let bool of prime){
-        if(bool){
-            count++;
-        }
-    } 
-    
-    return count;
+  for (let i = 0; i < prime.length; i++) {
+    if (prime[i]) {
+      count++;
+      result.push(i);
+    }
+  }
+
+//   for (let bool of prime) {
+//     if (bool) {
+//       count++;
+//     }
+//   } 
+
+  console.log(count, result);
 }
 
-function solution(n) {
-    return isPrime(n);
-}
-
-solution(10);
+isPrime(20);

@@ -46,6 +46,8 @@ class MinHeap {
     }
   }
 
+  
+
   pop() {
     // 예외 로직
     if (this.isEmpty()) return;
@@ -78,6 +80,8 @@ class MinHeap {
 
         this.swap(rightIndex, currentIndex);
         // currentIndex = rightIndex;
+
+
       } else if(this.heap[leftIndex].cost <= this.heap[rightIndex].cost) {
         // const temp = this.heap[currentIndex];
         // this.heap[currentIndex] = this.heap[leftIndex];
@@ -111,16 +115,22 @@ function dijkstra(road, N){
         for(const [start, dest, cost] of road){ // 루프를 돌며 시작점, 도착점, 비용을 꺼낸다
             const nextCost = cost + currentCost; // 다음 정점까지 가는 총 비용
 
+            // 해당 조건문은 현재 보는 current로 시작되어 연결된 도시를 확인하거나, current가 목적지(양방향)로 정해져 연결된 도시를 확인하여, 최소 경로를 구하는 과정이다.
             // 양방향 고려
+            // 힙에서 pop한 current와 연결되지 않은 경우, if문에 들어가지않음
             if (start === current && nextCost < dist[dest]){
                 // 만약 start정점이 현재 선택된 정점이고,
                 // 다음 정점으로 가는 총 비용이 기존 값보다 작은 경우 (예 : infinity에서 가중치값으로 최초변경)
+
+                // 얘시 : current:1일 때, (1,3,3) (1,4,1)은 가능, but (2,3,3) (5,1,1)은불가
 
                 dist[dest] = nextCost; // dest까지가는 비용 갱신
                 heap.push({node:dest, cost: nextCost}); // 힙(우선순위큐)에 정점과 정점까지 가는 비용 추가
             } else if(dest === current && nextCost < dist[start]){
                 // 만약 도착점이 현재 보고 있는 정점이고,
-                // 기존 갖고있는 값보다 목적지까지 가는 비용이 저렴한경우
+                // 기존 갖고있는 값보다 목적지까지 가는 비용이 저렴한경우 
+
+                // 예시 : current:2일 때, (4,2,1) (5,2,4) 가능 왜냐하면 (4,2,1)은 (2,4,1)과 같기 때문
                 dist[start] = nextCost;
                 heap.push({node: start, cost: nextCost}); 
             }
