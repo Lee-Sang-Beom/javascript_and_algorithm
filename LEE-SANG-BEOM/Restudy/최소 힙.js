@@ -6,6 +6,7 @@ class MinHeap{
     swap(leftIndex, rightIndex){
         [this.heap[leftIndex], this.heap[rightIndex]] = [this.heap[rightIndex], this.heap[leftIndex]];
     }
+    
     push(value){
         this.heap.push(value);
         let currentIndex = this.heap.length-1;
@@ -37,11 +38,11 @@ class MinHeap{
             } else if (this.heap[rightIndex] === undefined){
                 this.swap(currentIndex, leftIndex);
             } else if(this.heap[leftIndex] > this.heap[rightIndex]){
-                this.swap(currentIndex, rightIndex); // 오른쪽이 더 크니까, 오른쪽을 올리고, currentIndex가 내려갊
-                currentIndex = rightIndex;
+                this.swap(currentIndex, rightIndex); // 오른쪽이 더 크니까, 오른쪽을 올리고, currentIndex가 내려감
+                // currentIndex = rightIndex; // while문은 currentIndex가 가리키는 값을 보는거지 currentIndex 인덱스 값 자체가 굳이 변경될 필요는 없음
             } else if(this.heap[leftIndex] <= this.heap[rightIndex]){
-                this.swap(currentIndex, leftIndex); // 왼쪽이 더 크니까, 왼쪽을 올리고, currentIndex가 내려갊
-                currentIndex = leftIndex;
+                this.swap(currentIndex, leftIndex); // 왼쪽이 더 크니까, 왼쪽을 올리고, currentIndex가 내려감
+                // currentIndex = leftIndex;
             }
 
             leftIndex = currentIndex*2;
@@ -62,12 +63,12 @@ heap.push(36);
 heap.push(54);
 heap.push(27);
 heap.push(63);
-console.log(heap.heap); // [ null, 63, 54, 45, 27, 36 ]
 
-array.push(heap.pop()); // 63
-array.push(heap.pop()); // 54
-array.push(heap.pop()); // 45
-array.push(heap.pop()); // 36
-array.push(heap.pop()); // 27
+console.log(heap.heap); // [null, 27, 36, 54, 45, 63]
 
-console.log(array); // [ 63, 54, 45, 36, 27 ]
+array.push(heap.pop()); 
+array.push(heap.pop()); 
+array.push(heap.pop()); 
+array.push(heap.pop());
+array.push(heap.pop());
+console.log(array); // [27, 36, 45, 54, 63]

@@ -46,11 +46,11 @@ class MaxHeap{
             } else if (this.heap[rightIndex] === undefined){
                 this.swap(currentIndex, leftIndex);
             } else if(this.heap[leftIndex] < this.heap[rightIndex]){
-                this.swap(currentIndex, rightIndex); // 오른쪽이 더 크니까, 오른쪽을 올리고, currentIndex가 내려갊
-                currentIndex = rightIndex; // swap으로 값 자체는 바꿨지만, 인덱스는 바뀌지 않았으니 수행
+                this.swap(currentIndex, rightIndex); // 오른쪽이 더 크니까, 오른쪽을 올리고, currentIndex가 내려감
+                // currentIndex = rightIndex; // while문은 currentIndex가 가리키는 값을 보는거지 currentIndex 인덱스 값 자체가 굳이 변경될 필요는 없음
             } else if(this.heap[leftIndex] >= this.heap[rightIndex]){
-                this.swap(currentIndex, leftIndex); // 왼쪽이 더 크니까, 왼쪽을 올리고, currentIndex가 내려갊
-                currentIndex = leftIndex;
+                this.swap(currentIndex, leftIndex); // 왼쪽이 더 크니까, 왼쪽을 올리고, currentIndex가 내려감
+                
             }
             leftIndex = currentIndex*2;
             rightIndex = currentIndex*2+1;
