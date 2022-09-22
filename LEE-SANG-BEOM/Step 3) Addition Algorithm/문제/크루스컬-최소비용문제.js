@@ -4,6 +4,10 @@ function union(parent, a, b){
     a= find(parent, a); // a의 최상위원소
     b= find(parent, b); // b의 최상위원소
 
+    // 정점 1이 정점 2와 같은 집합이라 하자
+    // a=1, b=2인 경우 정점 b가 a을 가리키도록 하고 (a가 부모)
+    // a=2, b=1인 경우 정점 a가 b를 가리키도록 한다. (b가 부모)
+    // key(index): 원소, value: 부모가 될 정점 (이걸 더 적은쪽으로) 
     if(a<b){ // 더 낮은 원소가 부모가 되도록 규칙을 정한다.
         parent[b] = a;
     } else {
@@ -34,6 +38,7 @@ function solution(n, costs){
     let answer = 0;
 
     // 서로소 집합을 위한 자료구조: 자신이 속한 집합의 부모를 저장
+    // 정점이 0번부터 시작이라, n+1이 아님
     const parent = Array.from(Array(n), (v,k)=>k);
 
     for(const [a,b,cost] of sortedCosts){
