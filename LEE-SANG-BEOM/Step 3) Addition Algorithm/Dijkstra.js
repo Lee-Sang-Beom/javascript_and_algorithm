@@ -51,7 +51,8 @@
         //     }
 }
 
-let N = 4
-let village = Array.from(Array(N + 1), () => Array(N + 1).fill([Infinity, false]));
-village[0][2][1] = 1
-console.log(village[0]);
+const collect = new Map();
+collect.set('key1', 1+ (collect.get('key1') || 0));
+collect.set('key2', 1+ (collect.get('key2') || 0));
+collect.set('key2', (collect.get('key2') || 0) + 10);
+console.log(collect)
