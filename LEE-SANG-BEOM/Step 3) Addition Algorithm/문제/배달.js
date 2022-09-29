@@ -46,8 +46,6 @@ class MinHeap {
     }
   }
 
-  
-
   pop() {
     // 예외 로직
     if (this.isEmpty()) return;

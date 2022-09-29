@@ -24,7 +24,6 @@ function check(queen, row){ // 이전까지 둔 퀸의 위치 확인
         }
 
     }
-    
     return true;
 }
 

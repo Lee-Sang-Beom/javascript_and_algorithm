@@ -19,7 +19,7 @@ function combinations(arr, n){
 
 function solution(numbers) {
     // 1. 조합을 구한다.
-    const array = combinations(numbers,2);
+    const array = combinations(numbers, 2);
 
     // 2. 조합의 합을 구한다.
     const combine_sum = array.map((sum) => sum[0]+sum[1]);
