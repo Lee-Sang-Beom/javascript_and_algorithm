@@ -57,7 +57,7 @@
 
       let currentNode = this.root;
       while (currentNode !== null) {
-        if (currentNode.value < value) {
+        if (currentNode.value < value) { // 들어오는 게 크면 오른쪽으로
           if (currentNode.right === null) {
             currentNode.right = newNode;
             break;

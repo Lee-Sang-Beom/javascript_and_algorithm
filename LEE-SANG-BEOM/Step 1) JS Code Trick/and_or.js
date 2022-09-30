@@ -16,7 +16,8 @@ flag && func();
 const makeCompany = (showAddress) =>{
     return{
         name : 'Cobalt',
-        ...showAddress && {address: 'Seoul'} // true일 때만, 반환객체에 address 프로퍼티가 추가됨
+        ... showAddress && {address: 'Seoul'} // true일 때만, 반환객체에 address 프로퍼티가 추가됨
+        // 객체 안 객체가 되면 안되니, ...로 한번 빼줌
     }
 };
 

@@ -36,7 +36,7 @@
 {
     const fruits = ['apple', 'banana', 'orange'];
     const result = fruits.reverse(); // 배열 요소를 reverse
-    console.log(result); // [ 'orange', 'banana', 'apple' ]
+    console.log(result, fruits); // [ 'orange', 'banana', 'apple' ]
 }
 
 // shift, unshift
