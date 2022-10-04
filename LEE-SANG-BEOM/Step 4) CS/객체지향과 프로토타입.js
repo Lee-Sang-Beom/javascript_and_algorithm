@@ -71,12 +71,14 @@
     }
 
     const lee = new Person("이상범", "없음");
-    console.log(lee);
+    // console.log(lee);
 
     // 객체들은 각자 __proto__라는 객체를 내부적으로 가진다.
     // 이 내부에서 상위 객체를 link함
     console.log(Person.__proto__);
     console.log(lee.__proto__);
+    console.log(lee.getName(), "!");
+    
 
 }
 
