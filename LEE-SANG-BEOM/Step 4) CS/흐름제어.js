@@ -7,7 +7,7 @@
     - 기본적으로 변수 유효범위를 결정하는 단위인 블록문을 사용
     - 조건이나 반복을 통해 상태를 제어하며, 방식은 2가지가 있음
 
- 1. control flow: goto, if/else if/else, switch/case, for/while, 예외처리
+ 1. control flow: goto, if / else if / else, switch/case, for/while, 예외처리
    - 일반적 조건/반복문을 사용함으로써 control flow를 구현합니다.
 
  2. data flow: stateless, recursion, pipe
