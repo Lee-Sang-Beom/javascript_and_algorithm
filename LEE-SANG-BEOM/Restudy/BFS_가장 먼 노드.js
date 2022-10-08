@@ -1,50 +1,57 @@
 class Queue{
     constructor(){
-        this.queue = [];
-        this.front = 0;
-        this.rear = 0;
+        this.queue=[];
+        this.front=this.rear=this.size=0;
     }
 
     enqueue(value){
-        this.queue[this.rear++] = value;
+        this.queue[this.rear++]=value;
+        this.size++;
     }
 
     dequeue(){
-        const returnValue = this.queue[this.front];
-        delete this.queue[this.front++];
-        return returnValue;
+        const value = this.queue[this.front];
+        delete this.queue[this.front];
+        this.front++;
+        this.size--;
+        return value;
+    }
+
+    peek(){
+        return this.queue[this.front];
     }
 
     isEmpty(){
-        return this.front === this.rear;
+        return this.size;
     }
+    
 }
 
 function solution(n, edge){
-    const graph = Array.from({length: n+1}, ()=>[]);
-    const distance = Array.from({length:n+1}).fill(0);
-
-    for (const [start, dest] of edge){
-        graph[start].push(dest);
-        graph[dest].push(start);
+    const graph = Array.from(new Array(n+1), ()=>[]);
+    for (const [start, end] of edge){
+        graph[start].push(end);
+        graph[end].push(start);
     }
 
+    const distance = Array.from({length:n+1}).fill(0);
     distance[1] = 1;
 
-    const queue = new Queue();
+    const queue=new Queue();
     queue.enqueue(1);
 
-    while(!queue.isEmpty()){
-        const start = queue.dequeue();
+    while(queue.size){
+        const start= queue.dequeue();
 
-        for (const dest of graph[start]){
-            if(distance[dest]===0){
-                queue.enqueue(dest);
-                distance[dest] = distance[start]+1;
+        for (const end of graph[start]){
+            if(distance[end]===0){
+                distance[end] = distance[start] + 1;
+                queue.enqueue(end);
             }
         }
     }
 
-    const maxSave = Math.max(...distance);
-    return distance.filter(i=>i===maxSave).length;
+    const max = Math.max(...distance);
+    return distance.filter((i)=>i===max).length;
+
 }
